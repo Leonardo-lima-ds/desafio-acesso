@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Gerenciador</title>
+    <link rel="icon"  href="bootstrap/images/icone.jpg"/>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600"/>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700"/>
+	<link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+	<link href="bootstrap/css/home.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="container-fluid">
+	<div class="home"  style="margin-top: 1em;">
+		<div class="jumbotron" align="center">
+			<h1>Cadastre suas senhas</h1>
+		</div>
+		<a href="http://localhost:8080/logout" class="btn btn-info">Sair</a>	
+	 </div>
+ </header>	
+ 
+ 	<br/><br/>
+ 	 	
+ 	<div class="container">
+		<th:block th:include="validacao"></th:block>
+	</div>
+	
+	<div class="container">
+		<form action="salvar" method="post">
+		
+			<div>
+				<label for="servico">Serviço:</label> 
+				<input type="text" class="input-block-level" id="servico" name="servico" placeholder="Ex: Email, rede social, etc." />
+			</div>
+			
+			<div class="form-group">
+				<label for="email">Email correspondente(opcional):</label> 
+				<input type="email" class="input-block-level" id="email" name="email" placeholder="exemplo@email.com" />
+			</div>
+			
+			<div class="form-group">
+				<label for="senha">Senha:</label> 
+				<input type="password" class="input-block-level" id="senha" onkeyup="verifica()" name="senha" placeholder="Senha" />
+				<table id="mostra"></table>
+			</div><br/>
+			
+			<button type="submit" class="btn btn-primary">Adicionar</button>	
+		</form>
+	</div>
+	
+	<br/><br/>
+
+    <h3 align="center">Lista de senhas salvas:</h3>
+    
+	<div class="container row">
+		<div id="lista">
+		<p>*Botão editar indisponível no momento.</p>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Serviço</th>
+						<th>Email</th>
+						<th>Senha</th>
+					</tr>
+				</thead>
+				<tr th:each="list:${lista}">
+					<td><span th:text="${list.servico}"></span></td>
+					<td><span th:text="${list.email}"></span></td>
+					<td><span th:text="${list.senha}"></span></td>
+					<td style="float: left;">
+					<a class="btn btn-danger btn-xs" th:href="@{/deletar/{id}(id=${list.id})}">Excluir</a>
+					<a class="btn btn-warning btn-xs">Editar</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<footer class="container-fluid">
+			<br/>
+			<p>Autor: Leonardo Lima</p>
+			<br/>
+	</footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="bootstrap/js/testaForca.js"></script>
+	
+</body>
+</html>

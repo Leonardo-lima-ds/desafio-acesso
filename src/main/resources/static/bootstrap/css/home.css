@@ -1,0 +1,31 @@
+.home {
+	background-color:black;
+	color:white;
+	padding: 2em;
+	border-radius: .5em;
+}
+
+body {
+    font-family: "Crimson Text", "Times New Roman", serif;
+    font-size: 120%;
+}
+
+a {
+	color:white;
+	float:right;
+}
+form {
+	padding: .5em;
+    border-width: 1px 1px;
+    border-style: dotted;
+    border-color: black;
+}
+
+form label {
+	font-size: 100%;
+}
+
+footer {
+	border: 1px solid black;
+}
+

@@ -1,0 +1,6 @@
+br\com\desafio\Configuracao.class
+br\com\desafio\security\WebSecurityConfig.class
+br\com\desafio\GerenciadorController.class
+br\com\desafio\GerenciadorRepositorio.class
+br\com\desafio\modelos\Gerenciador.class
+br\com\desafio\servicos\GerenciadorService.class
